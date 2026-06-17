@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cidadania Digital: Desinformação e Deepfakes</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="header-container">
+            <h1>Consciência Digital</h1>
+            <button id="toggle-darkmode" class="btn-accessibility">Alternar Modo Escuro</button>
+        </div>
+    </header>
+
+    <main>
+        <section id="introducao" class="section-card">
+            <h2>O que são Deepfakes e Desinformação?</h2>
+            <p>As <strong>Deepfakes</strong> são mídias sintetizadas (vídeos, áudios ou imagens) criadas por Inteligência Artificial que imitam a aparência e a voz de pessoas reais de forma muito convincente. Quando usadas para espalhar mentiras de forma automatizada, geram um impacto devastador na nossa sociedade, distorcendo a verdade e manipulando a opinião pública.</p>
+        </section>
+
+        <section id="quiz-section" class="section-card">
+            <h2>Desafio: Você sabe identificar um Deepfake?</h2>
+            <p>Teste suas habilidades de cidadania digital respondendo à pergunta abaixo:</p>
+            
+            <form id="quiz-form">
+                <p class="question">Qual das alternativas abaixo é uma dica confiável para desconfiar de um vídeo que pode ser um Deepfake?</p>
+                
+                <div class="options">
+                    <label class="option-label">
+                        <input type="radio" name="answer" value="incorreta1" required> 
+                        O vídeo está em alta definição (4K).
+                    </label>
+                    <label class="option-label">
+                        <input type="radio" name="answer" value="correta"> 
+                        Piscadas de olhos não naturais, falhas na iluminação do rosto e áudio dessincronizado.
+                    </label>
+                    <label class="option-label">
+                        <input type="radio" name="answer" value="incorreta2"> 
+                        O vídeo foi compartilhado em um grupo de família.
+                    </label>
+                </div>
+
+                <button type="submit" class="btn-submit">Verificar Resposta</button>
+            </form>
+
+            <div id="quiz-result" class="result-box hidden"></div>
+        </section>
+
+        <section id="dicas" class="section-card">
+            <h2>Como Praticar a Cidadania Digital?</h2>
+            <ul class="tips-list">
+                <li><strong>Sempre cheque a fonte:</strong> Verifique se veículos de imprensa confiáveis confirmam a notícia.</li>
+                <li><strong>Analise os detalhes:</strong> Preste atenção em distorções nas bordas do rosto ou falhas na voz de vídeos suspeitos.</li>
+                <li><strong>Não compartilhe na dúvida:</strong> Quebre o ciclo de desinformação automatizada por IA.</li>
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 - Desenvolvido para o Projeto de Educação Digital e IA.</p>
+        <p><em>Use a tecnologia com ética e responsabilidade.</em></p>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
