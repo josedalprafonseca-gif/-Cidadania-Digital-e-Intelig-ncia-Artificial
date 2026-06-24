@@ -1,28 +1,29 @@
 /* ==========================================================================
-   1. VARIÁVEIS DE CORES E CONFIGURAÇÕES GERAIS (Paleta Tecnológica/Segurança)
+   1. DEFINIÇÃO DE VARIÁVEIS E TEMAS (Paleta Tecnológica e Segura)
    ========================================================================== */
 :root {
-    --bg-primary: #f4f7f6;
+    --bg-primary: #f8fafc;
     --bg-card: #ffffff;
-    --text-main: #1a1a1a;
-    --text-muted: #555555;
+    --text-main: #0f172a;
+    --text-muted: #475569;
     --primary-color: #2563eb;
     --primary-hover: #1d4ed8;
-    --accent-color: #10b981;
-    --error-color: #ef4444;
-    --border-color: #e5e7eb;
+    --accent-success: #10b981;
+    --accent-error: #ef4444;
+    --border-color: #e2e8f0;
 }
 
-/* Cores do Modo Escuro */
+/* Modificadores para Tema Escuro */
 body.dark-mode {
     --bg-primary: #0f172a;
     --bg-card: #1e293b;
     --text-main: #f8fafc;
-    --text-muted: #cbd5e1;
+    --text-muted: #94a3b8;
     --primary-color: #3b82f6;
     --border-color: #334155;
 }
 
+/* Reset Global */
 * {
     margin: 0;
     padding: 0;
@@ -30,29 +31,28 @@ body.dark-mode {
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     background-color: var(--bg-primary);
     color: var(--text-main);
     line-height: 1.6;
-    transition: background-color 0.3s ease, color 0.3s ease;
+    transition: background-color 0.25s ease, color 0.25s ease;
 }
 
 /* ==========================================================================
-   2. LAYOUT E COMPONENTES
+   2. ESTRUTURA DE LAYOUT (Flexbox & Grid)
    ========================================================================== */
 
-/* Cabeçalho com Flexbox */
 .main-header {
     background-color: var(--bg-card);
     border-bottom: 1px solid var(--border-color);
-    padding: 1.5rem;
+    padding: 1.25rem 1.5rem;
     position: sticky;
     top: 0;
     z-index: 100;
 }
 
 .header-container {
-    max-width: 1000px;
+    max-width: 900px;
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
@@ -64,11 +64,11 @@ body {
     background-color: transparent;
     border: 2px solid var(--primary-color);
     color: var(--primary-color);
-    padding: 0.5rem 1rem;
-    border-radius: 6px;
+    padding: 0.5rem 1.25rem;
+    border-radius: 8px;
     cursor: pointer;
     font-weight: 600;
-    transition: all 0.3s ease;
+    transition: all 0.2s ease;
 }
 
 .btn-accessibility:hover {
@@ -76,11 +76,10 @@ body {
     color: #ffffff;
 }
 
-/* Container do Conteúdo Principal */
 main {
     max-width: 800px;
-    margin: 2rem auto;
-    padding: 0 1rem;
+    margin: 2.5rem auto;
+    padding: 0 1.25rem;
 }
 
 /* Cards das Seções */
@@ -88,59 +87,71 @@ main {
     background-color: var(--bg-card);
     border: 1px solid var(--border-color);
     border-radius: 12px;
-    padding: 2rem;
+    padding: 2.25rem;
     margin-bottom: 2rem;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.03);
 }
 
 h2 {
     color: var(--primary-color);
-    margin-bottom: 1rem;
-    font-size: 1.5rem;
+    margin-bottom: 1.25rem;
+    font-size: 1.6rem;
 }
 
 p {
     color: var(--text-muted);
-    margin-bottom: 1rem;
+    margin-bottom: 1.25rem;
 }
 
 /* Formulário e Inputs */
+.quiz-fieldset {
+    border: none;
+}
+
 .question {
     font-weight: 600;
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
     color: var(--text-main);
+    font-size: 1.15rem;
 }
 
 .options {
     display: flex;
     flex-direction: column;
-    gap: 0.75rem;
-    margin-bottom: 1.5rem;
+    gap: 1rem;
+    margin-bottom: 1.75rem;
 }
 
 .option-label {
     display: flex;
     align-items: center;
-    gap: 0.5rem;
-    padding: 0.75rem;
+    gap: 0.75rem;
+    padding: 1rem;
     border: 1px solid var(--border-color);
     border-radius: 8px;
     cursor: pointer;
-    transition: background-color 0.2s ease;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
 }
 
 .option-label:hover {
-    background-color: rgba(37, 99, 235, 0.05);
+    background-color: rgba(59, 130, 246, 0.06);
+    border-color: var(--primary-color);
+}
+
+.option-label input[type="radio"] {
+    accent-color: var(--primary-color);
+    width: 1.15rem;
+    height: 1.15rem;
 }
 
 .btn-submit {
     background-color: var(--primary-color);
     color: #ffffff;
     border: none;
-    padding: 0.75rem 1.5rem;
+    padding: 0.85rem 1.75rem;
     font-size: 1rem;
     font-weight: 600;
-    border-radius: 6px;
+    border-radius: 8px;
     cursor: pointer;
     transition: background-color 0.2s ease;
 }
@@ -149,45 +160,44 @@ p {
     background-color: var(--primary-hover);
 }
 
-/* Caixa de Resultado do Quiz (DOM Manipulation) */
+/* Elementos Dinâmicos do JS */
 .result-box {
     margin-top: 1.5rem;
-    padding: 1rem;
-    border-radius: 6px;
+    padding: 1.25rem;
+    border-radius: 8px;
     font-weight: 600;
-    text-align: center;
+    line-height: 1.5;
 }
 
 .result-box.correct {
-    background-color: rgba(16, 185, 129, 0.15);
-    color: var(--accent-color);
-    border: 1px solid var(--accent-color);
+    background-color: rgba(16, 185, 129, 0.12);
+    color: var(--accent-success);
+    border: 1px solid var(--accent-success);
 }
 
 .result-box.incorrect {
-    background-color: rgba(239, 68, 68, 0.15);
-    color: var(--error-color);
-    border: 1px solid var(--error-color);
+    background-color: rgba(239, 68, 68, 0.12);
+    color: var(--accent-error);
+    border: 1px solid var(--accent-error);
 }
 
 .hidden {
     display: none;
 }
 
-/* Lista de Dicas */
+/* Listas */
 .tips-list {
     margin-left: 1.5rem;
     color: var(--text-muted);
 }
 
 .tips-list li {
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.75rem;
 }
 
-/* Rodapé */
 footer {
     text-align: center;
-    padding: 2rem;
+    padding: 2.5rem;
     background-color: var(--bg-card);
     border-top: 1px solid var(--border-color);
     color: var(--text-muted);
@@ -195,12 +205,12 @@ footer {
 }
 
 /* ==========================================================================
-   3. RESPONSIVIDADE (MEDIA QUERIES) - Nível 4 de Usabilidade
+   3. REGRAS DE RESPONSIVIDADE (MEDIA QUERIES)
    ========================================================================== */
-@media (max-width: 600px) {
+@media (max-width: 640px) {
     .header-container {
         flex-direction: column;
-        gap: 1rem;
+        gap: 1.25rem;
         text-align: center;
     }
 
