@@ -4,7 +4,216 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cidadania Digital e IA: Conscientização sobre Deepfakes</title>
-    <link rel="stylesheet" href="css/style.css"> ./
+    
+    <style>
+        :root {
+            --bg-primary: #f8fafc;
+            --bg-card: #ffffff;
+            --text-main: #0f172a;
+            --text-muted: #475569;
+            --primary-color: #2563eb;
+            --primary-hover: #1d4ed8;
+            --accent-success: #10b981;
+            --accent-error: #ef4444;
+            --border-color: #e2e8f0;
+        }
+
+        body.dark-mode {
+            --bg-primary: #0f172a;
+            --bg-card: #1e293b;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --primary-color: #3b82f6;
+            --border-color: #334155;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-main);
+            line-height: 1.6;
+            transition: background-color 0.25s ease, color 0.25s ease;
+        }
+
+        .main-header {
+            background-color: var(--bg-card);
+            border-bottom: 1px solid var(--border-color);
+            padding: 1.25rem 1.5rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-container {
+            max-width: 900px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .btn-accessibility {
+            background-color: transparent;
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+            padding: 0.5rem 1.25rem;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.2s ease;
+        }
+
+        .btn-accessibility:hover {
+            background-color: var(--primary-color);
+            color: #ffffff;
+        }
+
+        main {
+            max-width: 800px;
+            margin: 2.5rem auto;
+            padding: 0 1.25rem;
+        }
+
+        .section-card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 2.25rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.03);
+        }
+
+        h2 {
+            color: var(--primary-color);
+            margin-bottom: 1.25rem;
+            font-size: 1.6rem;
+        }
+
+        p {
+            color: var(--text-muted);
+            margin-bottom: 1.25rem;
+        }
+
+        .quiz-fieldset {
+            border: none;
+        }
+
+        .question {
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            color: var(--text-main);
+            font-size: 1.15rem;
+        }
+
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-bottom: 1.75rem;
+        }
+
+        .option-label {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 1rem;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.2s ease, border-color 0.2s ease;
+        }
+
+        .option-label:hover {
+            background-color: rgba(59, 130, 246, 0.06);
+            border-color: var(--primary-color);
+        }
+
+        .option-label input[type="radio"] {
+            accent-color: var(--primary-color);
+            width: 1.15rem;
+            height: 1.15rem;
+        }
+
+        .btn-submit {
+            background-color: var(--primary-color);
+            color: #ffffff;
+            border: none;
+            padding: 0.85rem 1.75rem;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+        }
+
+        .btn-submit:hover {
+            background-color: var(--primary-hover);
+        }
+
+        .result-box {
+            margin-top: 1.5rem;
+            padding: 1.25rem;
+            border-radius: 8px;
+            font-weight: 600;
+            line-height: 1.5;
+        }
+
+        .result-box.correct {
+            background-color: rgba(16, 185, 129, 0.12);
+            color: var(--accent-success);
+            border: 1px solid var(--accent-success);
+        }
+
+        .result-box.incorrect {
+            background-color: rgba(239, 68, 68, 0.12);
+            color: var(--accent-error);
+            border: 1px solid var(--accent-error);
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .tips-list {
+            margin-left: 1.5rem;
+            color: var(--text-muted);
+        }
+
+        .tips-list li {
+            margin-bottom: 0.75rem;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2.5rem;
+            background-color: var(--bg-card);
+            border-top: 1px solid var(--border-color);
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 640px) {
+            .header-container {
+                flex-direction: column;
+                gap: 1.25rem;
+                text-align: center;
+            }
+
+            .section-card {
+                padding: 1.5rem;
+            }
+
+            .btn-submit {
+                width: 100%;
+            }
+        }
+    </style>
 </head>
 <body>
 
@@ -66,6 +275,39 @@
         <p><em>Construindo uma comunidade digital ética e consciente.</em></p>
     </footer>
 
-   <script src="./js/script.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const toggleDarkModeBtn = document.getElementById("toggle-darkmode");
+            const quizForm = document.getElementById("quiz-form");
+            const quizResult = document.getElementById("quiz-result");
+
+            if (toggleDarkModeBtn) {
+                toggleDarkModeBtn.addEventListener("click", () => {
+                    const isDarkModeActive = document.body.classList.toggle("dark-mode");
+                    toggleDarkModeBtn.textContent = isDarkModeActive ? "Modo Claro" : "Modo Escuro";
+                });
+            }
+
+            if (quizForm && quizResult) {
+                quizForm.addEventListener("submit", (event) => {
+                    event.preventDefault(); // Impede o ?answer=incorreta1 na URL
+
+                    const selectedOption = document.querySelector('input[name="answer"]:checked');
+                    if (!selectedOption) return;
+
+                    const responseValue = selectedOption.value;
+                    quizResult.classList.remove("hidden", "correct", "incorrect");
+
+                    if (responseValue === "correta") {
+                        quizResult.textContent = "Excelente! Você identificou corretamente. Algoritmos de IA frequentemente cometem microerros biológicos, como renderizar piscadas assíncronas e falhas na iluminação tridimensional do rosto.";
+                        quizResult.classList.add("correct");
+                    } else {
+                        quizResult.textContent = "Resposta incorreta. Atenção: Embora a alta resolução seja comum hoje em dia, as deepfakes entregam-se em falhas biológicas sutis de movimento e física de luz. Revise as dicas abaixo e tente novamente!";
+                        quizResult.classList.add("incorrect");
+                    }
+                });
+            }
+        });
+    </script>
 </body>
 </html>
