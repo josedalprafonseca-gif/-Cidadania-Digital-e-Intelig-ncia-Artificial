@@ -1,43 +1,53 @@
-// Aguarda o carregamento completo do DOM para evitar erros de execução
+/**
+ * Componente Curricular: Educação Digital e Computação
+ * Controle Operacional do Portal de Cidadania Digital
+ */
+
 document.addEventListener("DOMContentLoaded", () => {
     
-    /* ==========================================
-       FUNCIONALIDADE 1: Modo Escuro (Acessibilidade)
-       ========================================== */
+    // Injeção Segura de Referências do DOM
     const toggleDarkModeBtn = document.getElementById("toggle-darkmode");
-    
-    toggleDarkModeBtn.addEventListener("click", () => {
-        // Altera a classe no body para disparar as variáveis CSS do modo escuro
-        document.body.classList.toggle("dark-mode");
-    });
-
-    /* ==========================================
-       FUNCIONALIDADE 2: Validador Interativo do Quiz
-       ========================================== */
     const quizForm = document.getElementById("quiz-form");
     const quizResult = document.getElementById("quiz-result");
 
-    quizForm.addEventListener("submit", (event) => {
-        // Previne o recarregamento automático da página ao enviar o formulário
-        event.preventDefault();
+    /* ==========================================================================
+       GERENCIAMENTO DE TEMA (Acessibilidade e Manipulação do DOM)
+       ========================================================================== */
+    if (toggleDarkModeBtn) {
+        toggleDarkModeBtn.addEventListener("click", () => {
+            const isDarkModeActive = document.body.classList.toggle("dark-mode");
+            
+            // Ajuste semântico e visual do estado do botão
+            toggleDarkModeBtn.textContent = isDarkModeActive ? "Modo Claro" : "Modo Escuro";
+        });
+    }
 
-        // Captura a opção selecionada pelo usuário através do name "answer"
-        const selectedOption = document.querySelector('input[name="answer"]:checked');
-        
-        // Verifica se o usuário de fato selecionou uma opção antes de enviar
-        if (!selectedOption) return;
+    /* ==========================================================================
+       SISTEMA INTERATIVO DO QUIZ (Processamento de Dados e Eventos)
+       ========================================================================== */
+    if (quizForm && quizResult) {
+        quizForm.addEventListener("submit", (event) => {
+            // Impede a submissão nativa e recarregamento da janela
+            event.preventDefault();
 
-        const userResponse = selectedOption.value;
+            // Captura dinâmica do elemento marcado
+            const selectedOption = document.querySelector('input[name="answer"]:checked');
+            
+            if (!selectedOption) return;
 
-        // Processa a informação armazenada na variável e altera o DOM dinamicamente
-        quizResult.classList.remove("hidden", "correct", "incorrect");
+            const responseValue = selectedOption.value;
 
-        if (userResponse === "correta") {
-            quizResult.textContent = "Excelente! Você acertou. Sinais físicos inconsistentes e falhas de áudio/iluminação são fortes indicadores de mídias sintetizadas por IA.";
-            quizResult.classList.add("correct");
-        } else {
-            quizResult.textContent = "Resposta incorreta. Lembre-se: Deepfakes de IA costumam falhar em aspectos físicos sutis como piscar de olhos e sincronia de áudio. Tente novamente!";
-            quizResult.classList.add("incorrect");
-        }
-    });
+            // Reset estrutural das classes utilitárias
+            quizResult.classList.remove("hidden", "correct", "incorrect");
+
+            // Estrutura Condicional Analítica (Processamento das Variáveis)
+            if (responseValue === "correta") {
+                quizResult.textContent = "Excelente! Você identificou corretamente. Algoritmos de IA frequentemente cometem microerros biológicos, como renderizar piscadas assíncronas e falhas na iluminação tridimensional do rosto.";
+                quizResult.classList.add("correct");
+            } else {
+                quizResult.textContent = "Resposta incorreta. Atenção: Embora a alta resolução seja comum hoje em dia, as deepfakes entregam-se em falhas biológicas sutis de movimento e física de luz. Revise as dicas abaixo e tente novamente!";
+                quizResult.classList.add("incorrect");
+            }
+        });
+    }
 });
