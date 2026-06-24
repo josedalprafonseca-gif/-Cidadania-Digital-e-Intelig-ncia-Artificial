@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cidadania Digital: Desinformação e Deepfakes</title>
+    <title>Cidadania Digital e IA: Conscientização sobre Deepfakes</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -11,57 +11,59 @@
     <header class="main-header">
         <div class="header-container">
             <h1>Consciência Digital</h1>
-            <button id="toggle-darkmode" class="btn-accessibility">Alternar Modo Escuro</button>
+            <button id="toggle-darkmode" class="btn-accessibility" aria-label="Alternar entre modo claro e escuro">Modo Escuro</button>
         </div>
     </header>
 
     <main>
         <section id="introducao" class="section-card">
-            <h2>O que são Deepfakes e Desinformação?</h2>
-            <p>As <strong>Deepfakes</strong> são mídias sintetizadas (vídeos, áudios ou imagens) criadas por Inteligência Artificial que imitam a aparência e a voz de pessoas reais de forma muito convincente. Quando usadas para espalhar mentiras de forma automatizada, geram um impacto devastador na nossa sociedade, distorcendo a verdade e manipulando a opinião pública.</p>
+            <h2>O Impacto das Deepfakes e da Desinformação</h2>
+            <p>As <strong>Deepfakes</strong> são mídias sintéticas geradas por Inteligência Artificial capazes de simular vozes e rostos humanos com alto realismo. Quando utilizadas para propagar desinformação automatizada em massa, elas ameaçam a integridade social, manipulam debates públicos e desafiam a nossa capacidade de distinguir o fato da ficção.</p>
         </section>
 
         <section id="quiz-section" class="section-card">
-            <h2>Desafio: Você sabe identificar um Deepfake?</h2>
-            <p>Teste suas habilidades de cidadania digital respondendo à pergunta abaixo:</p>
+            <h2>Desafio de Cidadania: Você sabe identificar um Deepfake?</h2>
+            <p>Desenvolva seu senso crítico respondendo à questão abaixo:</p>
             
             <form id="quiz-form">
-                <p class="question">Qual das alternativas abaixo é uma dica confiável para desconfiar de um vídeo que pode ser um Deepfake?</p>
-                
-                <div class="options">
-                    <label class="option-label">
-                        <input type="radio" name="answer" value="incorreta1" required> 
-                        O vídeo está em alta definição (4K).
-                    </label>
-                    <label class="option-label">
-                        <input type="radio" name="answer" value="correta"> 
-                        Piscadas de olhos não naturais, falhas na iluminação do rosto e áudio dessincronizado.
-                    </label>
-                    <label class="option-label">
-                        <input type="radio" name="answer" value="incorreta2"> 
-                        O vídeo foi compartilhado em um grupo de família.
-                    </label>
-                </div>
+                <fieldset class="quiz-fieldset">
+                    <legend class="question">Qual das alternativas apresenta um indício técnico comum de manipulação por IA em um vídeo?</legend>
+                    
+                    <div class="options">
+                        <label class="option-label">
+                            <input type="radio" name="answer" value="incorreta1" required> 
+                            O vídeo apresenta alta resolução e foi gravado em estúdio profissional.
+                        </label>
+                        <label class="option-label">
+                            <input type="radio" name="answer" value="correta"> 
+                            Padrões de piscada não naturais, sombras desalinhadas no rosto e descompasso entre a fala e o movimento labial.
+                        </label>
+                        <label class="option-label">
+                            <input type="radio" name="answer" value="incorreta2"> 
+                            O conteúdo foi compartilhado por um perfil verificado em uma grande rede social.
+                        </label>
+                    </div>
+                </fieldset>
 
-                <button type="submit" class="btn-submit">Verificar Resposta</button>
+                <button type="submit" class="btn-submit">Avaliar Resposta</button>
             </form>
 
-            <div id="quiz-result" class="result-box hidden"></div>
+            <div id="quiz-result" class="result-box hidden" role="alert"></div>
         </section>
 
         <section id="dicas" class="section-card">
-            <h2>Como Praticar a Cidadania Digital?</h2>
+            <h2>Diretrizes para Combater a Desinformação</h2>
             <ul class="tips-list">
-                <li><strong>Sempre cheque a fonte:</strong> Verifique se veículos de imprensa confiáveis confirmam a notícia.</li>
-                <li><strong>Analise os detalhes:</strong> Preste atenção em distorções nas bordas do rosto ou falhas na voz de vídeos suspeitos.</li>
-                <li><strong>Não compartilhe na dúvida:</strong> Quebre o ciclo de desinformação automatizada por IA.</li>
+                <li><strong>Rastreie a Origem:</strong> Investigue o autor e o veículo que publicou a mídia originalmente.</li>
+                <li><strong>Examine os Detalhes Biológicos:</strong> IA costuma falhar em texturas de pele, reflexos nos olhos e dentes.</li>
+                <li><strong>Pense antes de Compartilhar:</strong> A automação espalha boatos mais rápido que a checagem. Não passe adiante conteúdos duvidosos.</li>
             </ul>
         </section>
     </main>
 
     <footer>
-        <p>&copy; 2026 - Desenvolvido para o Projeto de Educação Digital e IA.</p>
-        <p><em>Use a tecnologia com ética e responsabilidade.</em></p>
+        <p>&copy; 2026 - Projeto de Educação Digital e Computação (Ensino Médio).</p>
+        <p><em>Construindo uma comunidade digital ética e consciente.</em></p>
     </footer>
 
     <script src="js/script.js"></script>
